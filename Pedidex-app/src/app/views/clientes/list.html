@@ -23,8 +23,8 @@
                 <td>{{rec.email}}</td>
                 <td>{{rec.telefone}}</td>
                 <td>
-                    <a class="btn btn-sm btn-success" ui-sref="cliente.edit({id: rec._id})">Editar</a>
-                    <button ng-click="vm.excluir(rec._id)" class="btn btn-sm btn-danger" type="button">Excluir</button>
+                    <a class="btn btn-sm btn-success" ui-sref="cliente.edit({id: rec.id})">Editar</a>
+                    <button ng-click="vm.excluir(rec.id)" class="btn btn-sm btn-danger" type="button">Excluir</button>
                 </td>
             </tr>
         </tbody>
