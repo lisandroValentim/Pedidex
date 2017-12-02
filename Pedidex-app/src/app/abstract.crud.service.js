@@ -1,3 +1,5 @@
+import swal from 'sweetalert2'
+
 export default class AbstractCrudService {
   
   constructor($http, url) {
@@ -24,7 +26,19 @@ export default class AbstractCrudService {
   }
 
   remove(id) {
-    return this._http.delete(`${this._url}/${id}`)
+    return swal({
+      title: 'Remover registro',
+      text: 'Deseja realmente remover o registro',
+      type: 'warning',
+      showConfirmButton: true,
+      showCancelButton: true,
+      confirmButtonText: 'Claro!',
+      cancelButtonText: 'Não obrigado'
+    }).then(resp => {
+      return resp.value ? 
+        this._http.delete(`${this._url}/${id}`) :
+        Promise.reject({message: 'Operação cancelada!!!'})
+    })
   }
 
 }

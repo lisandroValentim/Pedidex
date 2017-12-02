@@ -1,6 +1,5 @@
 package com.jhonystein.pedidex.api;
 
-import com.jhonystein.pedidex.model.Cliente;
 import com.jhonystein.pedidex.model.Entidade;
 import com.jhonystein.pedidex.service.AbstractCrudService;
 import java.util.List;
