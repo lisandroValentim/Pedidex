@@ -37,7 +37,7 @@ export default class AbstractCrudService {
     }).then(resp => {
       return resp.value ? 
         this._http.delete(`${this._url}/${id}`) :
-        Promise.reject({message: 'Operação cancelada!!!'})
+        Promise.reject({type: 'warning', message: 'Operação cancelada!!!'})
     })
   }
 

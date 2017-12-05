@@ -4,6 +4,7 @@ export default class ListController {
         this.filter = ''
         this.records = []
         this._service = ClienteServico
+        this._notify = Notification
         this.load()
     }
 
@@ -21,7 +22,12 @@ export default class ListController {
         this._service.remove(id)
             .then(response => {
                 this.load()
+                this._notify.success('Registro excluído com sucesso')
             }).catch(erro => {
+                this._notify({message: erro.message || 'Problemas ao excluir o registro'}, erro.type || 'error'
+
+                )
+                console.log(erro)
             }) 
     }
 }
