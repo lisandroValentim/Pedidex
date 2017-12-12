@@ -9,8 +9,8 @@ import javax.validation.Valid;
 
 public abstract class AbstractCrudService<T extends Entidade> {
     
-    public List<T> findAll() {
-        return getDao().findAll();
+    public List<T> findAll(Integer pageSize, Integer pageNumber, String filterField, String filterData, String order) {
+        return getDao().findAll(pageSize, pageNumber, filterField, filterData, order);
     }
     
     public T findById(Long id) {

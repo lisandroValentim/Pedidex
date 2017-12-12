@@ -24,10 +24,7 @@ export default class ListController {
                 this.load()
                 this._notify.success('Registro excluído com sucesso')
             }).catch(erro => {
-                this._notify({message: erro.message || 'Problemas ao excluir o registro'}, erro.type || 'error'
-
-                )
-                console.log(erro)
+                this._notify({message: erro.message || 'Problemas ao excluir o registro'}, erro.type || 'error')
             }) 
     }
 }
