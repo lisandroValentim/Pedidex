@@ -24,7 +24,7 @@ public class Produto implements Serializable, Entidade {
     @Column(name = "cd_produto", nullable = false, unique = true, length = 20)
     private String codigo;
     @NotNull(message = "{Produto.descricao.NotNull}")
-    @Size(min = 8, max = 200, message = "{Produto.descricao.Size}")
+    @Size(min = 5, max = 200, message = "{Produto.descricao.Size}")
     @Column(name = "ds_produto", length = 200)
     private String descricao;
     @Column(name = "vl_preco", precision = 15, scale = 5)
