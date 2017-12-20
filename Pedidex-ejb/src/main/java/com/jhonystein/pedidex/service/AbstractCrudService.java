@@ -12,9 +12,9 @@ public abstract class AbstractCrudService<T extends Entidade> {
     public List<T> findAll(Integer pageSize, Integer pageNumber, String filterField, String filterData, String order) {
         return getDao().findAll(pageSize, pageNumber, filterField, filterData, order);
     }
-
-    public List<T> findAll(Integer pageSize, Integer pageNumber) {
-        return findAll(pageSize, pageNumber, null, null, null);
+    
+    public List<T> findAllOver(String filterField, String filterData, String order) {
+        return getDao().findAll(filterField, filterData, order);
     }
     
     public T findById(Long id) {

@@ -24,8 +24,21 @@ public abstract class AbstractCrudResource<T extends Entidade> {
             @QueryParam("page")
             @DefaultValue("1") Integer pageNumber, 
             @QueryParam("size")
-            @DefaultValue("20") Integer pageSize) {
-        return getService().findAll(pageSize, pageNumber);
+            @DefaultValue("20") Integer pageSize,
+            @QueryParam("filterField") String filterField,
+            @QueryParam("filterValue") String filterValue,
+            @QueryParam("order") String order) {
+        return getService().findAll(pageSize, pageNumber, filterField, filterValue, order);
+    }
+    
+    @GET
+    @Path("all")
+    @Produces(MediaType.APPLICATION_JSON)
+    public List<T> findAllOver(
+            @QueryParam("filterField") String filterField,
+            @QueryParam("filterValue") String filterValue,
+            @QueryParam("order") String order) {
+        return getService().findAllOver(filterField, filterValue, order);
     }
     
     @GET

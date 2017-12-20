@@ -1,5 +1,3 @@
-import swal from 'sweetalert2'
-
 export default class AbstractCrudService {
   
   constructor($http, url) {
@@ -7,8 +5,14 @@ export default class AbstractCrudService {
     this._url = url
   }
 
-  findAll() {
-    return this._http.get(this._url)
+  findAll(filterField, filterValue, order) {
+    return this._http.get(`${this._url}/all`, {
+      params: {
+        filterField,
+        filterValue,
+        order
+      }
+    })
       .then(response => response.data)
   }
 
@@ -26,19 +30,7 @@ export default class AbstractCrudService {
   }
 
   remove(id) {
-    return swal({
-      title: 'Remover registro',
-      text: 'Deseja realmente remover o registro',
-      type: 'warning',
-      showConfirmButton: true,
-      showCancelButton: true,
-      confirmButtonText: 'Claro!',
-      cancelButtonText: 'Não obrigado'
-    }).then(resp => {
-      return resp.value ? 
-        this._http.delete(`${this._url}/${id}`) :
-        Promise.reject({type: 'warning', message: 'Operação cancelada!!!'})
-    })
+    return this._http.delete(`${this._url}/${id}`)
   }
 
 }
