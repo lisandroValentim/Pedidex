@@ -3,12 +3,9 @@ import FormController from './form.controller'
 
 import PedidoServico from './servico'
 
-//import { itemConfig } from './itens/config'
-
 export const pedidoConfig = (modulo) => {
 
   modulo.service('PedidoServico', PedidoServico)
-        //.config(itemConfig(modulo))
   
   return ['$stateProvider', '$urlRouterProvider', 
    ($stateProvider, $urlRouterProvider) => {

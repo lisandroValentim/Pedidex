@@ -2,12 +2,12 @@ import swal from 'sweetalert2'
 
 export default class ListController {
 
-    constructor(ProdutoServico, Notification) {
-        this.filterField = 'nome'
+    constructor(PedidoServico, Notification) {
+        this.filterField = 'cliente.nome'
         this.filterValue = ''
-        this.order = 'nome'
+        this.order = 'emissao+desc'
         this.records = []
-        this._service = ProdutoServico
+        this._service = PedidoServico
         this._notify = Notification
         this.load()
     }
@@ -44,4 +44,4 @@ export default class ListController {
     }
 }
 
-ListController.$inject = ['ProdutoServico', 'Notification']
+ListController.$inject = ['PedidoServico', 'Notification']

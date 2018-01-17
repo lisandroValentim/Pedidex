@@ -1,6 +1,7 @@
 package com.jhonystein.pedidex.util;
 
 import com.jhonystein.pedidex.model.Entidade;
+import java.util.Arrays;
 import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityNotFoundException;
@@ -8,7 +9,7 @@ import javax.persistence.EntityNotFoundException;
 /**
  *
  * @author jhony.pereira
- * @param <T>
+ * @param <T> Tipo da Entidade no GenericDao
  */
 public class GenericDao<T extends Entidade> {
 
@@ -49,6 +50,10 @@ public class GenericDao<T extends Entidade> {
         }
         return true;
     }
+    
+    private List<String> asListString(String value) {
+        return Arrays.asList(value.split("\\."));
+    }
 
     public List<T> findAll(String filterField, String filterData, String order) {
         return findAll(null, null, filterField, filterData, order);
@@ -61,7 +66,7 @@ public class GenericDao<T extends Entidade> {
                     .page(pageNumber);
         }
         if (nomEmpty(filterField, filterData)) {
-            helper.where(filterField, JpaCriteriaHelper.ComparatorOperator.LIKE_IGNORE_CASE, filterData.replaceAll("\\b", "%"));
+            helper.where(asListString(filterField), JpaCriteriaHelper.ComparatorOperator.LIKE_IGNORE_CASE, filterData.replaceAll("\\b", "%"));
         }
         if (nomEmpty(order)) {
             String[] parts = order.split("\\+");
@@ -80,4 +85,5 @@ public class GenericDao<T extends Entidade> {
         }
         return bean;
     }
+    
 }

@@ -1,7 +1,12 @@
 {
-  "name": "angularjs-webpack-boilerplate",
-  "version": "0.4.0",
-  "description": "AngularJS com webpack e uirouter boilerplate escrito em ES6",
+  "name": "pedidex-app",
+  "version": "1.0.0",
+  "description": "Exemplo de AngularJS com webpack aplicado ao curso de Java Avançado da Betha Sistemas",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jhonystein/Pedidex.git"
+  },
   "scripts": {
     "build": "webpack --env=dev --progress",
     "build:prod": "webpack --env=prod --progress",
@@ -16,6 +21,7 @@
     "angular-ui-notification": "^0.3.6",
     "bootstrap": "^4.0.0-beta.2",
     "jquery": "^1.9.1",
+    "ng-flatpickr": "^0.2.4",
     "popper.js": "^1.12.3",
     "sweetalert2": "^7.0.6"
   },

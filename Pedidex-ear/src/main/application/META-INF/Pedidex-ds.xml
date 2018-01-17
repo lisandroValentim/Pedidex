@@ -4,7 +4,7 @@
     <datasource jndi-name="java:jboss/datasources/PedidexDS" pool-name="Pedidex"
         enabled="true" use-java-context="true">
         <connection-url>jdbc:postgresql://localhost:5432/pedidex</connection-url>
-        <driver>org.postgresql</driver>
+        <driver>postgresql</driver>
         <security>
             <user-name>postgres</user-name>
             <password>postgres</password>
