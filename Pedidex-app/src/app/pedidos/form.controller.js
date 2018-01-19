@@ -1,6 +1,6 @@
 export default class FormController {
 
-    constructor($stateParams, $state, PedidoServico, Notification) {
+    constructor($stateParams, $state, PedidoServico, ClienteServico, Notification) {
         this.record = {}
         this.title = 'Adicionando registro'
         this._service = PedidoServico
@@ -9,10 +9,21 @@ export default class FormController {
             this._service.findById($stateParams.id)
                 .then(data => {
                     this.record = data
+                    this.record.emissao = new Date(this.record.emissao)
+                    //this.record.aprovacao = this.record.aprovacao ? new Date(this.record.aprovacao): ""
                 })
         }
         this._state = $state
         this._notify = Notification
+
+        this.clientes = []
+        ClienteServico.findAll()
+            .then(data => {
+                this.clientes = data
+            }, erro => {
+                this._notify.error('Erro ao carregar os clientes!')
+            })
+        
     }
 
     save() {
@@ -26,5 +37,4 @@ export default class FormController {
     }
 }
 
-FormController.$inject = ['$stateParams', '$state', 'PedidoServico', 'Notification']
-    
+FormController.$inject = ['$stateParams', '$state', 'PedidoServico', 'ClienteServico', 'Notification']

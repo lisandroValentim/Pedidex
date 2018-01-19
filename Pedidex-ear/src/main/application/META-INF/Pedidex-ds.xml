@@ -3,11 +3,15 @@
     xsi:schemaLocation="http://www.jboss.org/ironjacamar/schema http://docs.jboss.org/ironjacamar/schema/datasources_1_0.xsd">
     <datasource jndi-name="java:jboss/datasources/PedidexDS" pool-name="Pedidex"
         enabled="true" use-java-context="true">
-        <connection-url>jdbc:postgresql://localhost:5432/pedidex</connection-url>
+        <connection-url>jdbc:postgresql://tantor.db.elephantsql.com:5432/twxuzimk</connection-url>
         <driver>postgresql</driver>
+        <pool>
+            <min-pool-size>4</min-pool-size>
+            <max-pool-size>4</max-pool-size>
+        </pool>
         <security>
-            <user-name>postgres</user-name>
-            <password>postgres</password>
+            <user-name>twxuzimk</user-name>
+            <password>Ge2hab4vzXJ2H0tNn5HgRohWzbO4sRKJ</password>
         </security>
     </datasource>
 </datasources>

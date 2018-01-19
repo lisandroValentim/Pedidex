@@ -17,7 +17,7 @@
         </thead>
         <tbody>
             <tr ng-repeat="rec in vm.records">
-                <th scope="row">{{rec.emissao | date : 'dd/MM/yyyy HH:mm' : '+0'}}</th>
+                <th scope="row">{{rec.emissao | date : 'dd/MM/yyyy HH:mm'}}</th>
                 <td>{{rec.cliente.nome}}</td>
                 <td>{{rec.total}}</td>
                 <td style="text-align: right">

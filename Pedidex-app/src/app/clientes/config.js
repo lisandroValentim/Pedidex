@@ -13,9 +13,7 @@ export const clienteConfig = (modulo) => {
       .state('cliente', {
         template: require('@views/default.html'),
         url: '/clientes',
-        onEnter: ['$state', function($state) {
-          $state.go('cliente.list')
-        }]
+        redirectTo: 'cliente.list'
       })
       .state('cliente.list', {
         template: require('@views/clientes/list.html'),

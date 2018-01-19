@@ -13,9 +13,7 @@ export const pedidoConfig = (modulo) => {
       .state('pedido', {
         template: require('@views/default.html'),
         url: '/pedidos',
-        onEnter: ['$state', function($state) {
-          $state.go('pedido.list')
-        }]
+        redirectTo: 'pedido.list'
       })
       .state('pedido.list', {
         template: require('@views/pedidos/list.html'),

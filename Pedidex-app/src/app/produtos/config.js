@@ -13,9 +13,7 @@ export const produtoConfig = (modulo) => {
       .state('produto', {
         template: require('@views/default.html'),
         url: '/produtos',
-        onEnter: ['$state', function($state) {
-          $state.go('produto.list')
-        }]
+        redirectTo: 'produto.list'
       })
       .state('produto.list', {
         template: require('@views/produtos/list.html'),
